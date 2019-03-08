@@ -12,7 +12,7 @@
 .maincontainer {
     display: block;
     margin: auto;
-    width: 80%;
+    width: 90%;
     text-align: center;
     align-items: flex-start;
     position: relative;
@@ -20,11 +20,25 @@
     justify-content: space-around;
 }
 .cookie{
-    font-family: 'JBLames';
+    
     font-size: 24px;
-    color:red;
+    color:black;
 }
 
 .getFortune {
     font-size:20px;
+}
+
+.cookieimg {
+    width: 100%;
+}
+.fortune {
+    font-family: 'JBLames', 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color:red;
+    position: absolute;
+    top: 48%;
+    left: 42%;
+
+
 }
