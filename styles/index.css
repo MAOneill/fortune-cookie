@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'JBLames';
-    src:url('/fonts/JBLames.ttf.woff') format('woff'),
-        url('/fonts/') format('svg'),
-        url('/fonts/JBLames.ttf.eot'),
-        url('/fonts/JBLames.ttf.eot?#iefix') format('embedded-opentype'); 
+    src:url('../fonts/JBLames.ttf.woff') format('woff'),
+        url('../fonts/') format('svg'),
+        url('../fonts/JBLames.ttf.eot'),
+        url('../fonts/JBLames.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }
