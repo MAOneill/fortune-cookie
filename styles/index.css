@@ -1,0 +1,10 @@
+.maincontainer {
+    display: block;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    align-items: flex-start;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+}
