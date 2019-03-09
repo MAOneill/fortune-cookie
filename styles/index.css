@@ -7,7 +7,9 @@
     font-weight: normal;
     font-style: normal;
 }
-
+body {
+    background-color: rgb(93,197,185);
+}
 
 .maincontainer {
     display: block;
@@ -39,8 +41,8 @@
     color:red;
     position: absolute;
     width: 60%;
-    top: 42%;
-    left: 33%;
+    top: 51%;
+    left: 32%;
     /* so the text breaks on length AND ON \r\n characters */
     white-space: pre-line;  
 }
