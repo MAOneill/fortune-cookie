@@ -25,6 +25,7 @@ body {
     
     font-size: 24px;
     color:black;
+    position: relative;
 }
 
 .getFortune {
@@ -41,7 +42,7 @@ body {
     color:red;
     position: absolute;
     width: 60%;
-    top: 51%;
+    top: 39%;
     left: 32%;
     /* so the text breaks on length AND ON \r\n characters */
     white-space: pre-line;  
