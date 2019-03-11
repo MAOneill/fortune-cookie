@@ -30,17 +30,21 @@ function updateText (fortuneNumber) {
     cookieText.textContent = fortunes[fortuneNumber].fortune;
 };
 function updateNext() {
+  // I like this technique for rolling the value over!  
     currentFortune = (currentFortune + 1) % fortunes.length;
     // console.log(currentFortune);
     updateText(currentFortune);
 }
 function updatePrev() {
+  // Also very slick-
     currentFortune = (currentFortune - 1 + fortunes.length) % fortunes.length;
     // console.log(currentFortune);
     updateText(currentFortune);
 }
 function updateRandom() {
-    randomNumber = parseInt(Math.random() * fortunes.length)
+  // Careful with the accidental global variables!
+  // http://tobyho.com/2011/10/25/js-accidental-global-variables/
+    randomNumber = parseInt(Math.random() * fortunes.length);
     // console.log(randomNumber);
     updateText(randomNumber);
     currentFortune = randomNumber;
