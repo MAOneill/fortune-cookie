@@ -38,8 +38,12 @@ body {
 .fortune {
     font-family: 'JBLames', 'Courier New', Courier, monospace;
     font-size: 20px;
-    font-size: 2.5vw;
+    font-size: 2.5vw; // Oooh! Viewport-units. Nice find.
     color:red;
+
+    // Consider laying out with a mix of additional
+    // flexbox containers + transform: translate();
+    // Totally minor, though.
     position: absolute;
     width: 60%;
     top: 39%;
