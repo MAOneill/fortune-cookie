@@ -14,9 +14,23 @@ const staticFortunes = [{"fortune":"Play Rogue, visit exotic locations, \r\nmeet
 //need variable to hold current fortune
 let currentFortune = 0;
 //get pointers to the button, and cookie text element
-const fortunes = [];
-fortunes.push("You will have a charmed life.");
-console.log(fortunes);
+
+const fortunes = []
+
+
+//check for local storage
+//if it exists - use this as the fortunes array.
+if (localStorage.length) {  //zero is falsy
+  //get array from local storage
+  fortunes.push(JSON.parse(localStorage.getItem('fortunes')));
+}
+else {
+  console.log("there is no local storage. create initial array");
+  fortunes.push("You will have a charmed life.");
+  localStorage.setItem('fortunes',JSON.stringify(fortunes));
+}
+
+
 
 const cookieText = document.querySelector('[data-fortune]');
 const buttonFortuneRandom = document.querySelector('[data-button-random]');
@@ -45,6 +59,9 @@ function updateNext() {
 
           if (stringTest) {
             fortunes.push(fortune.fortune);  //add new fortune to array
+            // update local storage
+            localStorage.setItem('fortunes',JSON.stringify(fortunes));
+
             currentFortune += 1;  //add one to currentFortune - should be at end of array
             console.log("Update text is ", currentFortune);
             updateText(currentFortune);
@@ -80,6 +97,9 @@ function updatePrev() {
             console.log("FF fortune is ok length - use it");
             //if the string is 2 lines or less, use it
             fortunes.unshift(fortune.fortune);  //add new fortune to array
+            //update local storage
+            localStorage.setItem('fortunes',JSON.stringify(fortunes));
+
             //i don't need to figure out the position.  i am getting a brand new 0th element and i want to see that
             console.log("EE Update text is ", currentFortune);
             currentFortune = 0;  //i am at the beginning of array
