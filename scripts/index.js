@@ -34,17 +34,57 @@ function updateText (fortuneNumber) {
     cookieText.textContent = fortunes[fortuneNumber];
 };
 function updateNext() {
-  // I like this technique for rolling the value over!  
-    currentFortune = ((currentFortune + 1) % fortunes.length);
-    console.log("Update text is ", currentFortune);
-    updateText(currentFortune);
+    if (currentFortune === (fortunes.length -1)) {
+      //if we are add the array end, grab a new fortune using fetch
+      fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
+        .then(function (r) { return r.json()})
+        .then(function (fortune) { 
+          console.log(fortune.fortune);
+          // let temp = fortune.fortune.split(RegExp("\n"));
+          // console.log(temp);
+          fortunes.push(fortune.fortune);  //add new fortune to array
+          currentFortune += 1;  //add one to currentFortune - should be at end of array
+          // currentFortune = ((currentFortune + 1) % fortunes.length);
+          console.log("Update text is ", currentFortune);
+          updateText(currentFortune);
+      
+       });
+    }
+    else {
+      //we aren't at the end of our array, so we can just cyle through
+      currentFortune = ((currentFortune + 1) % fortunes.length);
+      console.log("Update text is ", currentFortune);
+      updateText(currentFortune);
+    }
 }
+
 function updatePrev() {
-  // Also very slick-
-    currentFortune = ((currentFortune - 1 + fortunes.length) % fortunes.length) ;
-    console.log("previous update text is ", currentFortune);
-    updateText(currentFortune);
+    if (currentFortune === 0) {
+      //if we are at the array beginning, grab a new fortune using fetch
+      fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
+        .then(function (r) { return r.json()})
+        .then(function (fortune) { 
+          console.log("I got a new fortune from previous");
+          console.log(fortune.fortune);
+          // let temp = fortune.fortune.split(RegExp("\n"));
+          // console.log(temp);
+          fortunes.unshift(fortune.fortune);  //add new fortune to array
+          //i don't need to figure out the position.  i am getting a brand new 0th element and i want to see that
+          console.log("Update text is ", currentFortune);
+          currentFortune = 0;  //i am at the beginning of array
+          updateText(currentFortune);
+      
+       });
+    }
+    else {
+      //we aren't at the beginning of our array, so we can just cyle through
+      currentFortune = ((currentFortune - 1 + fortunes.length) % fortunes.length) ;
+      console.log("Update text is ", currentFortune);
+      updateText(currentFortune);
+    }
 }
+
+
 function updateRandom() {
   // Careful with the accidental global variables!
   // http://tobyho.com/2011/10/25/js-accidental-global-variables/
