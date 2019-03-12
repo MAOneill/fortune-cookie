@@ -83,8 +83,7 @@ function updatePrev() {
 
             console.log("DD fortune too long - try again");
             //if the fortune is too long - get another one
-            //taking ths out because its in an infinite loop
-            // updatePrev();
+            updatePrev();
           }
       
        });
