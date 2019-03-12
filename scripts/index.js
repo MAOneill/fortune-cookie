@@ -15,16 +15,26 @@ const staticFortunes = [{"fortune":"Play Rogue, visit exotic locations, \r\nmeet
 let currentFortune = 0;
 //get pointers to the button, and cookie text element
 
-const fortunes = []
 
+const fortunes = [];
 
 //check for local storage
 //if it exists - use this as the fortunes array.
-if (localStorage.length) {  //zero is falsy
+localStorageFortunesArray = JSON.parse(localStorage.getItem('fortunes'));
+console.log(localStorageFortunesArray);
+console.log(typeof(localStorageFortunesArray));
+
+if (localStorageFortunesArray) {     //zero is falsy
   //get array from local storage
-  fortunes.push(JSON.parse(localStorage.getItem('fortunes')));
-}
-else {
+  //convert the object into an array
+  localStorageFortunesArray.forEach(function(saying) {
+    fortunes.push(saying);
+  });
+    console.log("this is what is currently in local storage:");
+    console.log(fortunes);
+  }
+
+else {      //there is no local storage with key of 'fortunes' - start a new one.
   console.log("there is no local storage. create initial array");
   fortunes.push("You will have a charmed life.");
   localStorage.setItem('fortunes',JSON.stringify(fortunes));
