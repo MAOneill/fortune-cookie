@@ -64,22 +64,35 @@ function updatePrev() {
       fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
         .then(function (r) { return r.json()})
         .then(function (fortune) { 
-          console.log("I got a new fortune from previous");
+          console.log("HH I got a new fortune from previous");
           console.log(fortune.fortune);
-          // let temp = fortune.fortune.split(RegExp("\n"));
-          // console.log(temp);
-          fortunes.unshift(fortune.fortune);  //add new fortune to array
-          //i don't need to figure out the position.  i am getting a brand new 0th element and i want to see that
-          console.log("Update text is ", currentFortune);
-          currentFortune = 0;  //i am at the beginning of array
-          updateText(currentFortune);
+          let stringTest = true;
+          stringTest = testFortuneString(fortune.fortune); //how is this undefined??
+          console.log("GG mystringtest boolean is ",stringTest);
+
+          if (stringTest) {
+            console.log("FF fortune is ok length - use it");
+            //if the string is 2 lines or less, use it
+            fortunes.unshift(fortune.fortune);  //add new fortune to array
+            //i don't need to figure out the position.  i am getting a brand new 0th element and i want to see that
+            console.log("EE Update text is ", currentFortune);
+            currentFortune = 0;  //i am at the beginning of array
+            updateText(currentFortune);
+          }
+          else {  
+
+            console.log("DD fortune too long - try again");
+            //if the fortune is too long - get another one
+            //taking ths out because its in an infinite loop
+            // updatePrev();
+          }
       
        });
     }
     else {
       //we aren't at the beginning of our array, so we can just cyle through
       currentFortune = ((currentFortune - 1 + fortunes.length) % fortunes.length) ;
-      console.log("Update text is ", currentFortune);
+      console.log("JJ Update text is ", currentFortune);
       updateText(currentFortune);
     }
 }
@@ -93,22 +106,35 @@ function updateRandom() {
     updateText(randomNumber);
     currentFortune = randomNumber;
 }
-//grab live data (using herokuapp as a proxy server - workaround from C.Aquino)
-//only assign event listeners to the data elements AFTER array of fortunes is collected 
-for (let i=1; i<=0; i++){
-  fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
-    .then(function (r) { return r.json()})
-      .then(function (fortune) { 
-        console.log(fortune.fortune);
-        // let temp = fortune.fortune.split(RegExp("\n"));
-        // console.log(temp);
-        fortunes.push(fortune.fortune);
-       });
-       if (i === maxFortunes) {
-         console.log("printing fortunes");
-         console.log(fortunes);
 
-       }
+// let testString = "Kludge, n.:\n\tAn ill-assorted collection of poorly-matching parts, forming a\n\tdistressing whole.\n\t\t-- Jackson Granholm,";
+//  testString = "If fifty million people say a foolish thing, it's still a foolish thing.\n\t\t-- Bertrand Russell";
 
+//i still want to throw out anything with 3 or more lines, so, i want to test for the \n special characters.
+function testFortuneString(testString){
+    // console.log(testString);
+    //this splits the text line into a array based on the line breaks.
+    //my display can only handle two lines
+    let temp = testString.split(RegExp("\n"));
+    console.log(temp);
+    //my function will return false if the line is too long to use
+    if (temp.length > 2) {
+      console.log("AA too many lines");
+      return false;  //change this to false
+    }
+    else {    //2 or fewer lines of text
+      //i also need to make sure the text lines aren't too long horizontally.
+      let testEach = true;
+      temp.forEach(function(line){
+        if (line.length <= 70){
+          console.log("BB the line lenght is",line.length);
+          testEach = testEach && true;
+        }
+        else{
+          console.log('CC the line length is too long', line.length);
+          testEach = testEach && false;   //one false will set this to false
+        }
+      });
+      return testEach;  //after testing each line, then return true or false
 }
-
+}
