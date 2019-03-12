@@ -39,14 +39,20 @@ function updateNext() {
       fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
         .then(function (r) { return r.json()})
         .then(function (fortune) { 
-          console.log(fortune.fortune);
-          // let temp = fortune.fortune.split(RegExp("\n"));
-          // console.log(temp);
-          fortunes.push(fortune.fortune);  //add new fortune to array
-          currentFortune += 1;  //add one to currentFortune - should be at end of array
-          // currentFortune = ((currentFortune + 1) % fortunes.length);
-          console.log("Update text is ", currentFortune);
-          updateText(currentFortune);
+          // console.log(fortune.fortune);
+          let stringTest = true;
+          stringTest = testFortuneString(fortune.fortune); //how is this undefined??
+
+          if (stringTest) {
+            fortunes.push(fortune.fortune);  //add new fortune to array
+            currentFortune += 1;  //add one to currentFortune - should be at end of array
+            console.log("Update text is ", currentFortune);
+            updateText(currentFortune);
+          }
+          else {
+            //the format of the fortune doesn't work in our screen, get another
+            updateNext();
+          }
       
        });
     }
@@ -64,11 +70,11 @@ function updatePrev() {
       fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
         .then(function (r) { return r.json()})
         .then(function (fortune) { 
-          console.log("HH I got a new fortune from previous");
-          console.log(fortune.fortune);
+          // console.log("HH I got a new fortune from previous");
+          // console.log(fortune.fortune);
           let stringTest = true;
           stringTest = testFortuneString(fortune.fortune); //how is this undefined??
-          console.log("GG mystringtest boolean is ",stringTest);
+          // console.log("GG mystringtest boolean is ",stringTest);
 
           if (stringTest) {
             console.log("FF fortune is ok length - use it");
