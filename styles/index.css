@@ -37,19 +37,26 @@ body {
 }
 .fortune {
     font-family: 'JBLames', 'Courier New', Courier, monospace;
-    font-size: 20px;
-    font-size: 2.5vw; 
-    color:red;
+    /* font-size: 20px; */
+    font-size: 1.8vh; 
+    fill: red;
+    /* so the text breaks on length AND ON \r\n characters */
+    white-space: pre-line;  
+}
 
-    /* // Consider laying out with a mix of additional
-    // flexbox containers + transform: translate();
-    // Totally minor, though. */
+.fortuneh2 {
+    display: none;
+
+    font-family: 'JBLames', 'Courier New', Courier, monospace;
+    /* font-size: 20px; */
+    font-size: 2.5vw; 
+
     position: absolute;
     width: 60%;
     top: 39%;
     left: 32%;
-    /* so the text breaks on length AND ON \r\n characters */
-    white-space: pre-line;  
+    color:red;
+
 }
 
 .cookiePaperCurve {

@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/index.css">
-  </head>
-  <body>
-    <div class="maincontainer">
-      <!-- teeny, tiny nitpick: indentation-->
-            <div class="buttons">
-             <button class="getFortune" data-button-forward>Next Fortune</button>
-             <button class="getFortune" data-button-reverse>Previous Fortune</button>
-             <button class="getFortune" data-button-random>Random Fortune</button>
-            </div>
-
-             
-    <div class="cookie" data-cookie>
-      <!-- <p>You will have a charmed life</p> -->
-    <!-- <img class="cookieimg" src="img/fortune-cookie-affirmation-crop.jpg" alt=""> -->
-
-    <svg class="cookieimg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 425 282.3" style="enable-background:new 0 0 425 282.3;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#61C4B7;}
@@ -30,7 +9,7 @@
 	.st3{fill:#A5773B;}
 	.st4{fill:#C58F4C;}
 	.st5{fill:#E1A96B;}
-	#fortuneline{fill:none;stroke:none; stroke-width: 5; stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#020202;stroke-miterlimit:10;}
 </style>
 <g>
 	<path class="st0" d="M-7.5,289c0-96.2,0-192.4-0.1-288.6c0-3.5,0.7-4.2,4.2-4.2c141.8,0.1,283.6,0.1,425.4,0c3.5,0,4.2,0.7,4.2,4.2
@@ -71,24 +50,5 @@
 	<path class="st4" d="M172.1,178c2,0.2,3.5,1.6,5.2,2.5c1,3.6,4.6,5.5,5.9,8.9c-1.7,0.2-3.4,0.2-5,0.5c-2.5,0.4-4.1-0.2-3.8-3.1
 		C174.8,183.6,170.7,181.5,172.1,178z"/>
 </g>
-<path id="fortuneline" d="M152.5,138.2c24-12.4,47.3-32.8,107-5.1s117.2,8,120.8-4.4"/>
-
-<text >
-  <textPath data-fortune-top class="fortune" alignment-baseline="baseline" xlink:href="#fortuneline">
-    Click a button above to see your fortune.
-  </textPath>
-  <textPath data-fortune-bottom class="fortune" alignment-baseline="hanging" xlink:href="#fortuneline">
-    
-  </textPath>
-</text>
-
+<path class="st6" d="M152.5,138.2c24-12.4,47.3-32.8,107-5.1s117.2,8,120.8-4.4"/>
 </svg>
-    <h2 class=fortuneh2 data-fortune-old>Click a button above to see your fortune.</h2>
-
-
-</div>
-</div>
-
-   <script src="scripts/index.js"></script> 
-</body>
-</html>

@@ -42,7 +42,8 @@ else {      //there is no local storage with key of 'fortunes' - start a new one
 
 
 
-const cookieText = document.querySelector('[data-fortune]');
+const cookieTextTop = document.querySelector('[data-fortune-top]');
+const cookieTextBottom = document.querySelector('[data-fortune-bottom]');
 const buttonFortuneRandom = document.querySelector('[data-button-random]');
 const buttonFortuneNext = document.querySelector('[data-button-forward]');
 const buttonFortunePrev = document.querySelector('[data-button-reverse]');
@@ -55,7 +56,13 @@ buttonFortunePrev.addEventListener('click',updatePrev);
 
 
 function updateText (fortuneNumber) {
-    cookieText.textContent = fortunes[fortuneNumber];
+
+  const splitFortune = fortunes[fortuneNumber].split(RegExp("\n"));
+  console.log("now i split the fortune into two lines....");
+  console.log(splitFortune);
+    cookieTextTop.textContent = splitFortune[0];
+    cookieTextBottom.textContent =  (splitFortune[1] ? splitFortune[1] : " ");
+    // cookieTextBottom.textContent = splitFortune[1];
 };
 function updateNext() {
     if (currentFortune === (fortunes.length -1)) {
