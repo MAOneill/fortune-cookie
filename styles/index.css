@@ -45,6 +45,7 @@ body {
     /* so the text breaks on length AND ON \r\n characters */
     /* white-space: pre-line;   */
     white-space:nowrap;  /* but i think this is better */
+    alignment-baseline: baseline;
 }
 /* i had to remove the white-space pre-line from html */
 
@@ -84,7 +85,7 @@ svg {
     and (-webkit-device-pixel-ratio : 3) {
 
         .fortune {
-            font-size: 2.0vh; 
+            font-size: 1.8vh; 
         }
         
      }
