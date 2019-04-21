@@ -168,7 +168,7 @@ function testFortuneString(testString){
       //i also need to make sure the text lines aren't too long horizontally.
       let testEach = true;
       temp.forEach(function(line){
-        if (line.length <= 70){
+        if (line.length <= 65){
           console.log("BB the line lenght is",line.length);
           testEach = testEach && true;
         }

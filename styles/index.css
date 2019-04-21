@@ -7,6 +7,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
 body {
     background-color: rgb(93,197,185);
 }
@@ -42,7 +44,9 @@ body {
     fill: red;
     /* so the text breaks on length AND ON \r\n characters */
     /* white-space: pre-line;   */
+    white-space:nowrap;  /* but i think this is better */
 }
+/* i had to remove the white-space pre-line from html */
 
 .fortuneh2 {
     display: none;
