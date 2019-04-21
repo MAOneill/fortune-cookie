@@ -45,6 +45,8 @@ body {
     /* so the text breaks on length AND ON \r\n characters */
     /* white-space: pre-line;   */
     white-space:nowrap;  /* but i think this is better */
+    /* alignment baseline DOES not work for mobile */
+    /* it causes the text TO HANG off the path. */
     /* alignment-baseline: baseline; */
 }
 /* i had to remove the white-space pre-line from html */
