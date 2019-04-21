@@ -37,6 +37,7 @@ body {
 }
 .fortune {
     font-family: 'JBLames', 'Courier New', Courier, monospace;
+    font-family:  'Courier New', Courier, monospace;
     font-size: 20px;
     /* font-size: 1.6vh;  */
     fill: red;
