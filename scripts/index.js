@@ -67,7 +67,9 @@ function updateText (fortuneNumber) {
 function updateNext() {
     if (currentFortune === (fortunes.length -1)) {
       //if we are add the array end, grab a new fortune using fetch
-      fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
+      // fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
+      //https://vqk2qu3kxvn42bz4c6z3d4z45q0omqln.lambda-url.us-east-2.on.aws is my AWs lambda function
+      fetch('https://vqk2qu3kxvn42bz4c6z3d4z45q0omqln.lambda-url.us-east-2.on.aws/api/http://yerkee.com/api/fortune')
         .then(function (r) { return r.json()})
         .then(function (fortune) { 
           // console.log(fortune.fortune);
@@ -101,7 +103,9 @@ function updateNext() {
 function updatePrev() {
     if (currentFortune === 0) {
       //if we are at the array beginning, grab a new fortune using fetch
-      fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune')
+      // fetch('https://my-little-cors-proxy.herokuapp.com/http://yerkee.com/api/fortune') -- this was Chris Aquino's
+      //https://vqk2qu3kxvn42bz4c6z3d4z45q0omqln.lambda-url.us-east-2.on.aws is my AWs lambda function
+      fetch('https://vqk2qu3kxvn42bz4c6z3d4z45q0omqln.lambda-url.us-east-2.on.aws/api/http://yerkee.com/api/fortune')
         .then(function (r) { return r.json()})
         .then(function (fortune) { 
           // console.log("HH I got a new fortune from previous");
